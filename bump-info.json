@@ -5,6 +5,15 @@
   "files": [{
     "path": "build",
     "line": 1
+  }, {
+    "path": "invaders1.04.txt",
+    "line": 7
+  }, {
+    "path": "invadershelp.asm",
+    "line": 2
+  }, {
+    "path": "invaderstitle.asm",
+    "line": 3
   }],
   "rules": [{
       "trigger": "manual",

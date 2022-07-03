@@ -1,4 +1,5 @@
 * do we need to compile everything?  0=Yes, 1=No
+* don't move the first 7 lines for version-bumper
 
 QUICK set 0
 
@@ -1337,65 +1338,16 @@ keycheck
 keyreturn
  puls b,x,y,pc      restore regs
 
-invaders fcc "Invaders"
-helpmsg fcb $d,$a
- fcc "Invaders 1.04 by Allen Huffman (alsplace@pobox.com)"
- fcb $d,$a
- fcc "with updates/fixes by Robert Gault."
- fcb $d,$a
- fcc "Copyright (C) 1994,95,2015 by Sub-Etha Software. www.subethasoftware.com"
- fcb $d,$a,$d,$a
- fcc "Syntax: Invaders [-opts]"
- fcb $d,$a
- fcc "Usage : LEFT/RIGHT to Move, SPACE to Fire, P to Pause, Q to Quit."
- fcb $d,$a
- fcc "Opts  : -? = display this message."
- fcb $d,$a
- fcc "        -m = monochrome colors (for 'montype m' displays)."
- fcb $d,$a
- fcc "        -z = secret option if you think it is too slow."
- fcb $d,$a
- fcc "        -* = secret cheat mode (press * to skip level)."
- fcb $d,$a
-helpsize equ *-helpmsg
+invaders fcs "Invaders"
+
+ include invadershelp.asm
 
 window fcc "/W"
  fcb $d
 
 cls fcb $c          clear screen byte
 
-title 
- fcb $2,$20+8,$20+1,$1b,$32,3
- fcc "/) Invaders 09  V1.04 (\"
- fcb $2,$20+10,$20+2,$1b,$32,2
- fcc "The Invasion Begins!"
- fcb $2,$20+1,$20+4,$1b,$32,3
- fcc "Copyright (C) 94-2015 by Allen Huffman"
- fcb $2,$20+3,$20+5
- fcc   "with updates/fixes by Robert Gault"
- fcb $2,$20+18,$20+7,$1b,$32,1
- fcc "and"
- fcb $2,$20+11,$20+9,$1b,$32,3
- fcc            "Sub-Etha Software"
- fcb $2,$20+8,$20+10
- fcc         "www.SubEthaSoftware.com"
-*fcb $2,$20+6,$20+11
-*fcc       "PO Box 22031 Clive IA 50325"
- fcb $2,$20+1,$20+12,$1b,$32,2
-*fcc "Support the future of OS-9 & the CoCo."
- fcc "If you enjoy this, feel free to tip me"
- fcb $2,$20+1,$20+13
- fcc "a dollar. PayPal alsplace@pobox.com :)"
-*fcc "Please do not pirate this program."
- fcb $2,$20+3,$20+15,$1b,$32,3
- fcc "Special thanks to Robert Gault for"
- fcb $2,$20+2,$20+16
- fcc "endless code contributions, and beta"
- fcb $2,$20+2,$20+17
- fcc "crew Colin, Bob, Alex & Bro. Jeremy."
- fcb $2,$20+4,$20+23
- fcc "(J)oystick   (K)eyboard   (Q)uit"
-titlelen equ *-title
+ include invaderstitle.asm
 
 overmsg fcb $2,$20+11,$20+23
  fcc " /) GAME OVER! (\ "
